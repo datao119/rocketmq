@@ -59,6 +59,7 @@ class LocalMessageCache implements ServiceLifecycle {
         this.pullOffsetTable = new ConcurrentHashMap<>();
         this.rocketmqPullConsumer = rocketmqPullConsumer;
         this.clientConfig = clientConfig;
+        
         this.cleanExpireMsgExecutors = Executors.newSingleThreadScheduledExecutor(new ThreadFactoryImpl(
             "OMS_CleanExpireMsgScheduledThread_"));
     }
