@@ -21,6 +21,8 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageQueue;
 
+import java.util.HashMap;
+
 public class CheckForbiddenContext {
     private String nameSrvAddr;
     private String group;
@@ -74,8 +76,11 @@ public class CheckForbiddenContext {
     }
 
     public SendResult getSendResult() {
+        HashMap hashMap = new HashMap();
         return sendResult;
     }
+
+
 
     public void setSendResult(SendResult sendResult) {
         this.sendResult = sendResult;
