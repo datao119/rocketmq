@@ -227,11 +227,13 @@ public class DefaultMessageStore implements MessageStore {
      */
     public void start() throws Exception {
 
+        //锁
         lock = lockFile.getChannel().tryLock(0, 1, false);
         if (lock == null || lock.isShared() || !lock.isValid()) {
             throw new RuntimeException("Lock failed,MQ already started");
         }
 
+        //nio
         lockFile.getChannel().write(ByteBuffer.wrap("lock".getBytes()));
         lockFile.getChannel().force(true);
         {

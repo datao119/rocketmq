@@ -27,6 +27,7 @@ public class ProducerWithNamespace {
         producer.setNamesrvAddr("127.0.0.1:9876");
         producer.start();
         for (int i = 0; i < 100; i++) {
+            // 如何保证顺序性 需要将需要保证顺序的消息发送到同一个队列
             Message message = new Message("topicTest", "tagTest", "Hello world".getBytes());
             try {
                 SendResult result = producer.send(message);

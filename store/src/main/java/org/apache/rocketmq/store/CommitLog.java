@@ -90,6 +90,7 @@ public class CommitLog {
 
         this.defaultMessageStore = defaultMessageStore;
 
+        //同步刷盘 异步刷盘
         if (FlushDiskType.SYNC_FLUSH == defaultMessageStore.getMessageStoreConfig().getFlushDiskType()) {
             this.flushCommitLogService = new GroupCommitService();
         } else {
