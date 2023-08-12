@@ -39,8 +39,7 @@ public class IndexFile {
     private final MappedByteBuffer mappedByteBuffer;
     private final IndexHeader indexHeader;
 
-    public IndexFile(final String fileName, final int hashSlotNum, final int indexNum,
-        final long endPhyOffset, final long endTimestamp) throws IOException {
+    public IndexFile(final String fileName, final int hashSlotNum, final int indexNum, final long endPhyOffset, final long endTimestamp) throws IOException {
         int fileTotalSize =
             IndexHeader.INDEX_HEADER_SIZE + (hashSlotNum * hashSlotSize) + (indexNum * indexSize);
         this.mappedFile = new MappedFile(fileName, fileTotalSize);
